@@ -31,11 +31,11 @@ void lightSystemInit()
 
 void lightSystemUpdate()
 {
-    dutyCycle = lightLevelControlRead();
+    dutyCycle = lightLevelControlRead(); // lectura de potenciometro / control del duty
 
     setDutyCycle( RGB_LED_RED, dutyCycle );
-    setDutyCycle( RGB_LED_GREEN, dutyCycle );
     setDutyCycle( RGB_LED_BLUE, dutyCycle );
+    setDutyCycle( RGB_LED_GREEN, dutyCycle );
 
 }
 

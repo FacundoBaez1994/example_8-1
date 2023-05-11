@@ -14,7 +14,8 @@
 
 //=====[Declaration and initialization of public global objects]===============
 
-DigitalOut RGBLed[] = {(PB_4), (PA_0), (PD_12)};
+//DigitalOut RGBLed[] = {(PB_4), (PA_0), (PD_12)};
+DigitalOut RGBLed[] = {(PB_0), (PB_7), (PB_14)};
 
 Ticker tickerBrightControl;
 
@@ -46,11 +47,11 @@ void brightControlInit()
     tickerBrightControl.attach( tickerCallbackBrightControl, 
                               ( (float) tickRateMSBrightControl) / 1000.0 );
 
-    setPeriod( RGB_LED_RED, 0.01f );
-    setPeriod( RGB_LED_GREEN, 0.01f );
-    setPeriod( RGB_LED_BLUE, 0.01f );
+    setPeriod( RGB_LED_RED, 0.1f ); // CAMBIO DE FRECUENCIA
+    setPeriod( RGB_LED_GREEN, 0.6f );
+    setPeriod( RGB_LED_BLUE, 0.7f );
 
-    setDutyCycle( RGB_LED_RED, 0.5f );
+    setDutyCycle( RGB_LED_RED, 0.5f ); //  CAMBIO DE DUTY CLYCLE
     setDutyCycle( RGB_LED_GREEN, 0.5f );
     setDutyCycle( RGB_LED_BLUE, 0.5f );
 }
