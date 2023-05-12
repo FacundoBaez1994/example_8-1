@@ -37,6 +37,9 @@ void lightSystemUpdate()
     setDutyCycle( RGB_LED_GREEN, dutyCycle );
     setDutyCycle( RGB_LED_BLUE, dutyCycle );
 
+    delay (10);
+    tickerCallbackBrightControl (); // 
+
 }
 
 //=====[Implementations of private functions]==================================

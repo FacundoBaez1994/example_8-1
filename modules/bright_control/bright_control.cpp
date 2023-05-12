@@ -14,9 +14,9 @@
 
 //=====[Declaration and initialization of public global objects]===============
 
-DigitalOut RGBLed[] = {(PB_4), (PA_0), (PD_12)};
+DigitalOut RGBLed[] = {(PB_0), (PB_7), (PB_14)};
 
-Ticker tickerBrightControl;
+// Ticker tickerBrightControl; HARDWARE
 
 //=====[Declaration and initialization of private global objects]===============
 
@@ -37,14 +37,14 @@ static float periodSFloat[LEDS_QUANTITY];
 //=====[Declarations (prototypes) of private functions]========================
 
 static void setPeriod( lightSystem_t light, float period );
-static void tickerCallbackBrightControl( );
 
 //=====[Implementations of public functions]===================================
 
 void brightControlInit()
 {
-    tickerBrightControl.attach( tickerCallbackBrightControl, 
-                              ( (float) tickRateMSBrightControl) / 1000.0 );
+  //  tickerBrightControl.attach( tickerCallbackBrightControl, 
+  //                            ( (float) tickRateMSBrightControl) / 1000.0 );
+  // SACO EL TICKER PORQUE ES HARDWARE
 
     setPeriod( RGB_LED_RED, 0.01f );
     setPeriod( RGB_LED_GREEN, 0.01f );
@@ -68,7 +68,7 @@ static void setPeriod( lightSystem_t light, float period )
     periodSFloat[light] = period;
 }
 
-static void tickerCallbackBrightControl( )
+void tickerCallbackBrightControl( ) //PASO A PUBLICA
 {
     int i;
 
